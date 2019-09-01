@@ -21,3 +21,8 @@ def requests_image(file_url):
     else:
         return False
 
+def get_url_file_title(file_url):
+    return urlsplit(file_url)[2].split('/')[-1].split('.')[0]
+
+def get_url_filename(file_url):
+    return urlsplit(file_url)[2].split('/')[-1]
