@@ -3,6 +3,8 @@
 
 import tkinter as tk
 from tkinter import filedialog
+import os
+from shutil import copy2
 
 def _setup_root():
     root = tk.Tk()
@@ -49,3 +51,19 @@ def choose_files(title=None):
     files = []
     files.append(filedialog.askopenfiles(title=title))
     return files
+
+def copy_all_to_dir(path_list, dir=os.getcwd()):
+    path_list = []
+    for path in path_list:
+        new_path = copy2(path, dir)
+        path_list.append(new_path)
+    return path_list
+
+
+def make_im_dir():
+    if 'images' not in os.listdir():
+        os.mkdir('images')
+    os.chdir('images')
+    im_dir = os.path.abspath(os.getcwd()) 
+    os.chdir('..')
+    return im_dir
