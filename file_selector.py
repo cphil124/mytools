@@ -10,7 +10,7 @@ def _setup_root():
 
 def choose_folder(title=None):
     _setup_root()
-    directory = tk.filedialog.askdirectory(title=title)
+    directory = filedialog.askdirectory(title=title)
     return directory
 
 def choose_file_name(title=None):
@@ -19,7 +19,7 @@ def choose_file_name(title=None):
     the function returns an absolute path to that file in the system.
     """
     _setup_root()
-    filepath = tk.filedialog.askopenfilename(title=title)
+    filepath = filedialog.askopenfilename(title=title)
     return filepath
 
 def choose_file_names(title=None):
@@ -29,7 +29,7 @@ def choose_file_names(title=None):
     """
     _setup_root()
     filepaths = []
-    filepaths.append(tk.filedialog.askopenfilenames(title=title))
+    filepaths.append(filedialog.askopenfilenames(title=title))
     return filepaths
 
 def choose_file(title=None):
@@ -38,7 +38,7 @@ def choose_file(title=None):
     Can be used as a user-select open() function
     """
     _setup_root()
-    filepath = tk.filedialog.askopenfile(title=title)
+    filepath = filedialog.askopenfile(title=title)
     return filepath
 
 def choose_files(title=None):
@@ -47,5 +47,5 @@ def choose_files(title=None):
     """
     _setup_root()
     files = []
-    files.append(tk.filedialog.askopenfiles(title=title))
+    files.append(filedialog.askopenfiles(title=title))
     return files
