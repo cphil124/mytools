@@ -1,6 +1,7 @@
 import requests
 from io import open as iopen
 import os
+import torch
 from urllib.parse import urlsplit
 
 def requests_image(file_url):
@@ -26,3 +27,15 @@ def get_url_file_title(file_url):
 
 def get_url_filename(file_url):
     return urlsplit(file_url)[2].split('/')[-1]
+
+def get_img_normalize_mean(device='cpu'):
+    if device == 'cpu':
+        return torch.tensor([0.485, 0.456, 0.406])
+    elif device == 'cuda':
+        return torch.tensor([0.485, 0.456, 0.406]).to(device)
+
+def get_img_normalize_std(device='cpu'):
+    if device == 'cpu':
+        return torch.tensor([0.229, 0.224, 0.225])
+    elif device == 'cuda':
+        return torch.tensor([0.229, 0.224, 0.225]).to(device)
