@@ -5,6 +5,7 @@ import tkinter as tk
 from tkinter import filedialog
 import os
 from shutil import copy2
+import mytools.imgget
 
 def _setup_root():
     root = tk.Tk()
